@@ -1,6 +1,5 @@
 package top.safun.miaosha.exception;
 
-import com.alibaba.fastjson.JSON;
 import org.springframework.validation.BindException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -18,18 +17,19 @@ import java.util.List;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
-    public String exceptionHandler(HttpServletRequest request,Exception e){
+    public Result exceptionHandler(HttpServletRequest request,Exception e){
+        e.printStackTrace();
         if (e instanceof GlobalException){
             GlobalException globalException=(GlobalException)e;
-            return JSON.toJSONString(Result.error(globalException.getCodeMessage()));
+            return Result.error(globalException.getCodeMessage());
         } else if (e instanceof BindException){
             BindException bindException=(BindException)e;
             List<ObjectError> objectErrors=bindException.getAllErrors();
             ObjectError error=objectErrors.get(0);
             String msg=error.getDefaultMessage();
-            return JSON.toJSONString(Result.error(CodeMessage.BIND_ERROR.fillArgs(msg)));
+            return Result.error(CodeMessage.BIND_ERROR.fillArgs(msg));
         }else {
-            return JSON.toJSONString(Result.error(CodeMessage.SERVER_ERROR));
+            return Result.error(CodeMessage.SERVER_ERROR);
         }
 
     }

@@ -17,7 +17,14 @@ public class CodeMessage {
     public static CodeMessage MOBILE_ERROR=new CodeMessage(500212,"手机号格式错误");
     public static CodeMessage MOBILE_NOT_EXIST=new CodeMessage(500213,"手机号码不存在");
     public static CodeMessage PASSWORD_ERROR=new CodeMessage(500212,"密码错误");
-    //商品模块
+
+    //商品模块 5003XX
+
+    //订单模块 5004XX
+
+    //秒杀模块 5005XX
+    public static CodeMessage MIAOSHA_OVER=new CodeMessage(500500,"商品已经秒杀完毕");
+    public static CodeMessage REPEATE_MIAOSHA=new CodeMessage(500501,"不能重复秒杀");
 
     private CodeMessage(int code,String msg){
         this.code=code;

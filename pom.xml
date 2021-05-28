@@ -68,11 +68,10 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.11</version>
         </dependency>
-
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.76</version>
+            <version>1.2.38</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

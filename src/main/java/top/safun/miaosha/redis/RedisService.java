@@ -33,7 +33,7 @@ public class RedisService {
         Jedis jedis=null;
         try {
             jedis=jedisPool.getResource();
-            String str=BeanToString(value);
+            String str=beanToString(value);
             String realKey=prefix.getPrefix()+key;
             int seconds=prefix.expireSeconds();
 
@@ -82,7 +82,7 @@ public class RedisService {
         }
     }
 
-    private <T> String BeanToString(T value){
+    private <T> String beanToString(T value){
         if (value==null){
             return null;
         }
@@ -132,4 +132,5 @@ public class RedisService {
                 redisConfig.getPort(),redisConfig.getTimeout()*1000);
         return jedisPool;
     }
+
 }
