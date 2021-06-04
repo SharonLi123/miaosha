@@ -128,8 +128,9 @@ public class RedisService {
         jedisPoolConfig.setMaxTotal(redisConfig.getPoolMaxTotal());
         jedisPoolConfig.setMaxWaitMillis(redisConfig.getPoolMaxWait()*1000);
 
+        System.out.println(redisConfig.getPassword());
         JedisPool jedisPool=new JedisPool(jedisPoolConfig,redisConfig.getHost(),
-                redisConfig.getPort(),redisConfig.getTimeout()*1000);
+                redisConfig.getPort(),redisConfig.getTimeout()*1000,redisConfig.getPassword());
         return jedisPool;
     }
 

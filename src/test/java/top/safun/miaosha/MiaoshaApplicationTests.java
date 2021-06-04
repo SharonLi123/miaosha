@@ -3,7 +3,6 @@ package top.safun.miaosha;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.core.JdbcTemplate;
 import top.safun.miaosha.domain.User;
 import top.safun.miaosha.redis.RedisService;
 import top.safun.miaosha.redis.UserKey;
@@ -59,5 +58,6 @@ class MiaoshaApplicationTests {
         System.out.println(dbPass);
 
         System.out.println(MD5Util.inputPassToDBPass("123456","1a2b3c4d"));
+
     }
 }

@@ -31,7 +31,7 @@ public class MiaoshaUserService {
         return miaoshaUserDao.getById(id);
     }
 
-    public boolean login(HttpServletResponse response,LoginVo loginVo){
+    public String login(HttpServletResponse response,LoginVo loginVo){
         if (loginVo==null){
             throw new GlobalException(CodeMessage.SERVER_ERROR);
         }
@@ -56,7 +56,7 @@ public class MiaoshaUserService {
         String token=UUIDUtil.uuid();
         //设置cookies
         addCookie(response,user,token);
-        return true;
+        return token;
     }
 
     public MiaoshaUser getByToken(HttpServletResponse response,String token) {
